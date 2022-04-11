@@ -1,24 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
 </head>
+
 <body>
-    
-login: <input type= "text" id="login"><br>
-senha: <input type="password" id="senha"><br>
-<button id="enviar">Entrar</button>
 
-<script>
+    <div id="mensagem"></div>
 
+    <form>
+        <div>Digite suas credenciais:</div>
+        <label>Login: <input type="text" id="login" autocomplete="off" autofocus></label><br>
+        <label>Senha: <input type="password" id="senha" autocomplete="off"></label><br>
+        <label><input type="checkbox" id="logado" value="sim"> Mantenha-me logado.</label><br>
+        <button type="submit" id="enviar">Entrar</button>
+    </form>
 
-    enviar.onclick = () => {
-        alert('clicou');
-    }
-</script>
+    <script>
+
+        // Login e senha do usuário
+        const loginUsuario = 'joca';
+        const loginSenha = '1234';
+
+        // Quando clicar em 'id="enviar"'
+        enviar.onclick = () => {
+
+            // Ler o valor do 'Login' digitado
+            var formUsuario = login.value;
+
+            // Ler o valor da 'Senha'  digitada
+            var formSenha = senha.value;
+
+            // Testa se usuário e senha estão corretos
+            if (
+                // Primeira expressão
+                formUsuario == loginUsuario //true
+
+                // AND
+                &&
+
+                // Segunda expressão
+                formSenha == loginSenha //true
+            ) {
+
+                // Escreve na caixa de mensagem
+                mensagem.innerHTML = "Olá " + formUsuario + "! Seja bem-vindo!";
+
+            } else {
+
+                // Escreve na caixa de mensagem
+                mensagem.innerHTML = "Ooops! Algo errado não deu certo!";
+            }
+
+            // Não faça mais nada.
+            return false;
+        }
+
+    </script>
 
 </body>
+
 </html>
